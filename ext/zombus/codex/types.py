@@ -1,5 +1,5 @@
-from msgspec import Struct
+import abc
 
 
-class Message(Struct):
+class Message(abc.ABC):
     pass

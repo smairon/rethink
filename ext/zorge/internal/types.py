@@ -24,8 +24,21 @@ class Parameter:
     annotated_metadata: tuple[typing.Any, ...] = ()
 
 
+class NoValueType:
+    """Синглтон-сентинел, означающий «зависимость не разрешена»."""
+
+    __slots__ = ()
+
+    def __repr__(self) -> str:
+        return "NoValue"
+
+    def __bool__(self) -> bool:
+        return False
+
+
+NoValue = NoValueType()
+
 type EntityType = type[typing.Any]
 type InstanceType = object
 type ContractType = type[typing.Any]
-type NoValue = object
 type ScopeType = str
